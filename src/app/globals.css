@@ -13,15 +13,13 @@
 }
 
 *::-webkit-scrollbar {
-  width: 8px;
+  @apply w-2
 }
 
 *::-webkit-scrollbar-track {
-  background: #374151;
-  border-radius: 5px;
+  @apply rounded-sm bg-gray-950
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #0061ff;
-  border-radius: 14px;
+  @apply bg-sky-500 rounded-md
 }

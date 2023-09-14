@@ -1,7 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter, IBM_Plex_Mono } from 'next/font/google'
-import Header from '@components/Header';
+import { Header } from '@components/Header';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -19,16 +19,15 @@ export const metadata: Metadata = {
   description: 'Meu portfólio pessoal (naceja)',
 }
 
-
 interface IRootLayout {
   children: React.ReactNode
 }
-export default function RootLayout({ children }: IRootLayout) {
+export default function RootLayout({ children: page }: IRootLayout) {
   return (
-    <html lang="pt-br">
-      <body className={`${inter.variable} ${plexMono.variable}`}>
+    <html lang="pt-BR">
+      <body className={`${inter.variable} ${plexMono.variable} font-sans`}>
         <Header />
-        {children}
+        {page}
       </body>
     </html>
   )

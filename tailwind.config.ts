@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import colors from 'tailwindcss/colors'
 
 const config: Config = {
   content: [
@@ -12,13 +13,13 @@ const config: Config = {
     },
     extend: {
       backgroundImage: {
-        'hero-image': "url('/images/hero-bg.png')",
+        'hero-image': "url('/images/hero_bg.png')",
       },
       fontFamily: {
         mono: ['var(--font-plex-mono)', 'monospace'],
       },
       boxShadow: {
-        button: '0px 0px 68px 7px rgba(5, 150, 105, 0.4)',
+        button: `0px 0px 60px 10px ${colors.sky[400]}40` ,
       },
     },
   },
