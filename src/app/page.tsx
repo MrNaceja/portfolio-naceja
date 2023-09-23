@@ -1,3 +1,4 @@
+import { ExperienceWorkSection } from "@components/ExperienceSection"
 import { HeroSection } from "@components/HeroSection"
 import { HighlightedProjectsSection } from "@components/HighlightedProjectsSection"
 import { TechsSection } from "@components/TechsSection"
@@ -8,6 +9,7 @@ export default function HomePage() {
       <HeroSection />
       <TechsSection />
       <HighlightedProjectsSection />
+      <ExperienceWorkSection />
     </>
   )
 }

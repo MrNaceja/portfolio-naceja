@@ -3,10 +3,7 @@ import { Badge } from "@components/Badge"
 import { Button } from "@components/Button"
 import { HiArrowNarrowRight } from 'react-icons/hi'
 import { TbBrandGithub, TbBrandWhatsapp, TbBrandFacebook, TbBrandInstagram, TbBrandLinkedin } from 'react-icons/tb'
-
-const TECHS = [
-    'PHP', 'SQL', 'JS', 'CSS', 'TS', 'React'
-]
+import { TECHS } from "@utils/models/TechDTO"
 
 const CONTACTS = [
     {
@@ -42,7 +39,7 @@ export const HeroSection = () => {
                     <div className="flex items-center gap-2 mt-2">
                         {
                             TECHS.map((tech, index) => (
-                                <Badge label={tech} key={index} />
+                                <Badge label={tech.name} key={index} />
                             ))
                         }
                     </div>
