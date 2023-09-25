@@ -25,6 +25,7 @@ export const Header = () => {
                     alt='Logo Naceja'
                     width={50}
                     height={50}
+                    className="drop-shadow-lg"
                 />
                 <nav className="flex gap-5 items-baseline">
                     {

@@ -13,13 +13,13 @@ const config: Config = {
     },
     extend: {
       backgroundImage: {
-        'hero-image': "url('/images/hero_bg.png')",
+        'hero-image': "url('/images/hero_bg.png')"
       },
       fontFamily: {
         mono: ['var(--font-plex-mono)', 'monospace'],
       },
       boxShadow: {
-        button: `0px 0px 60px 10px ${colors.sky[400]}40` ,
+        button: `0px 0px 25px 8px ${colors.sky[400]}40` ,
       },
     },
   },

@@ -64,7 +64,7 @@ export const HighlightedProjectsSection = () => {
                     ))
                 }
             </main>
-            <div className="flex gap-2 items-center justify-center">
+            <div className="flex gap-2 items-center justify-center md:justify-start">
                 <span className="text-gray-300">Se interressou?</span>
                 <Link href='/projetos' target="_blank" className="flex gap-2 items-center">
                     Visualizar todos

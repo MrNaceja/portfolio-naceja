@@ -30,7 +30,7 @@ const CONTACTS = [
 
 export const HeroSection = () => {
     return (
-        <section className="lg:h-screen bg-cover bg-no-repeat bg-center bg-hero-image hue-rotate-30 bg-sky-400 w-full flex flex-col justify-end py-32">
+        <section className="lg:h-screen bg-cover bg-no-repeat bg-center bg-hero-image bg-sky-500 bg-blend-multiply w-full flex flex-col justify-end py-32">
             <main className="container flex justify-between flex-col-reverse md:flex-row items-center gap-3">
                 <div className="flex flex-col w-full lg:w-2/4 gap-1 text-center sm:text-left">
                     <h2 className="text-sky-500 text-2xl">Olá, me chamo</h2>
