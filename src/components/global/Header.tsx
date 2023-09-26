@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { usePathname } from 'next/navigation'
+import { twMerge } from "tailwind-merge";
 
 type TNavLink = {
     label: string,
@@ -31,13 +32,13 @@ export const Header = () => {
                     {
                         headerNavigations.map(({ label, route }) => {
                             const isActiveRoute = currentRoute == route
-                            return <Link key={route} href={route} className={`
-                            cursor-pointer select-none uppercase 
-                            ${isActiveRoute
-                                    ? 'text-lg text-white font-bold'
-                                    : 'text-sm text-gray-400 hover:text-gray-200'
-                                }
-                        `}>{label}</Link>
+                            return <Link key={route} href={route} className={
+                                twMerge("cursor-pointer select-none uppercase relative",
+                                    isActiveRoute
+                                        ? "text-md text-white font-bold after:block after:absolute after:-bottom-1 after:inset-x-1/2 after:h-1 after:w-1 after:rounded-full after:bg-white after:animate-ping"
+                                        : "text-sm text-gray-400 hover:text-gray-200"
+                                )
+                            }>{label}</Link>
 
                         })
                     }

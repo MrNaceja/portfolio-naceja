@@ -1,6 +1,6 @@
-import { SectionDescriptive } from "@components/SectionDescriptive"
+import { SectionDescriptive } from "@components/global/SectionDescriptive"
 import { TECHS } from "@models/TechDTO"
-import { TechCard } from "@components/TechCard"
+import { TechCard } from "@components/global/TechCard"
 
 export const TechsSection = () => {
     return (

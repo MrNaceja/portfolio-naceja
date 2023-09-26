@@ -4,12 +4,20 @@
 
 @layer base {
   body {
-    @apply bg-gray-900 text-gray-100
+    @apply bg-gray-900 text-gray-100 tracking-wide
   }
 }
 
 .container {
   @apply mx-auto w-full max-w-[1200px] px-6
+}
+
+.mask-gradient {
+  mask-image: linear-gradient(to right, black, transparent);
+}
+
+.mask-gradient:hover {
+  mask-image: none;
 }
 
 *::-webkit-scrollbar {

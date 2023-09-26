@@ -1,8 +1,8 @@
 import Image from "next/image"
 import { FaBriefcase } from 'react-icons/fa'
-import { Divider } from "./Divider"
+import { Divider } from "../global/Divider"
 import { TECHS } from "@utils/models/TechDTO"
-import { Badge } from "./Badge"
+import { Badge } from "../global/Badge"
 export const ExperiencesTimeline = () => {
     return (
         <div className="flex flex-col gap-2">

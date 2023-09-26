@@ -1,9 +1,9 @@
-import { SectionDescriptive } from "@components/SectionDescriptive"
-import { Divider } from "@components/Divider"
+import { SectionDescriptive } from "@components/global/SectionDescriptive"
+import { Divider } from "@components/global/Divider"
 import Image from "next/image"
 import { BsArrowUpRight } from 'react-icons/bs'
 import { TECHS } from "@utils/models/TechDTO"
-import { Badge } from "@components/Badge"
+import { Badge } from "@components/global/Badge"
 import Link from "next/link"
 
 const PROJECTS = [

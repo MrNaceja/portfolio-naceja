@@ -1,13 +1,14 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter, IBM_Plex_Mono } from 'next/font/google'
-import { Header } from '@components/Header';
-import { ContactForm } from '@components/ContactForm';
-import { Footer } from '@components/Footer';
+import { IBM_Plex_Mono, Inter } from 'next/font/google'
+import { Header } from '@components/global/Header';
+import { ContactFormSection } from '@components/global/ContactFormSection';
+import { Footer } from '@components/global/Footer';
 
 const inter = Inter({
   variable: '--font-inter',
-  subsets: ['latin'],
+  subsets:['latin'],
+  weight: ['100', '200', '400', '600', '900'],
 })
 
 const plexMono = IBM_Plex_Mono({
@@ -27,10 +28,10 @@ interface IRootLayout {
 export default function RootLayout({ children: page }: IRootLayout) {
   return (
     <html lang="pt-BR">
-      <body className={`${inter.variable} ${plexMono.variable} font-sans`}>
+      <body className={`${plexMono.variable} ${inter.variable} font-sans`}>
         <Header />
         {page}
-        <ContactForm />
+        <ContactFormSection />
         <Footer />
       </body>
     </html>

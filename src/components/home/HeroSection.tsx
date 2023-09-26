@@ -1,6 +1,6 @@
 import Image from "next/image"
-import { Badge } from "@components/Badge"
-import { Button } from "@components/Button"
+import { Badge } from "@components/global/Badge"
+import { Button } from "@components/global/Button"
 import { HiArrowNarrowRight } from 'react-icons/hi'
 import { TbBrandGithub, TbBrandWhatsapp, TbBrandFacebook, TbBrandInstagram, TbBrandLinkedin } from 'react-icons/tb'
 import { TECHS } from "@utils/models/TechDTO"

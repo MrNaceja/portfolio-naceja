@@ -1,5 +1,5 @@
 import { ExperiencesTimeline } from "./ExperiencesTimeline"
-import { SectionDescriptive } from "./SectionDescriptive"
+import { SectionDescriptive } from "../global/SectionDescriptive"
 
 export const ExperienceWorkSection = () => {
     return (

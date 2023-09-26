@@ -1,7 +1,7 @@
-import { ExperienceWorkSection } from "@components/ExperienceSection"
-import { HeroSection } from "@components/HeroSection"
-import { HighlightedProjectsSection } from "@components/HighlightedProjectsSection"
-import { TechsSection } from "@components/TechsSection"
+import { ExperienceWorkSection } from "@components/home/ExperienceSection"
+import { HeroSection } from "@components/home/HeroSection"
+import { HighlightedProjectsSection } from "@components/home/HighlightedProjectsSection"
+import { TechsSection } from "@components/home/TechsSection"
 
 export default function HomePage() {
   return (

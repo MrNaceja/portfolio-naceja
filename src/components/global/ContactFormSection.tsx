@@ -1,14 +1,14 @@
 'use client'
 
 import { useForm } from "react-hook-form"
-import { Button } from "@components/Button"
-import { SectionDescriptive } from "@components/SectionDescriptive"
+import { Button } from "@components/global/Button"
+import { SectionDescriptive } from "@components/global/SectionDescriptive"
 import { RiMailSendLine } from 'react-icons/ri'
 import { TContact, contactSchema } from "@utils/models/ContactDTO"
 
 import { zodResolver } from '@hookform/resolvers/zod'
 
-export const ContactForm = () => {
+export const ContactFormSection = () => {
 
     const { handleSubmit, register } = useForm<TContact>({
         resolver: zodResolver(contactSchema)
@@ -19,7 +19,7 @@ export const ContactForm = () => {
     }
 
     return (
-        <SectionDescriptive title="Gstou do meu trabalho?" subtitle="contato">
+        <SectionDescriptive title="Gostou do meu trabalho?" subtitle="contato">
             <div className="flex flex-col items-center justify-center gap-3 mx-auto w-full max-w-md">
                 <h1 className="text-2xl">Entre em contato</h1>
                 <form className="flex flex-col gap-4 items-center w-full" onSubmit={handleSubmit(handleContactMe)}>
