@@ -7,9 +7,9 @@ interface ISectionDescriptiveProps extends DetailedHTMLProps<HTMLAttributes<HTML
     children: React.ReactNode,
     full?: boolean  
 }
-export const SectionDescriptive = ({title, subtitle, children, className, full = false} : ISectionDescriptiveProps) => {
+export const SectionDescriptive = ({title, subtitle, children, className, full = false, ...sectionProps} : ISectionDescriptiveProps) => {
     return (
-        <section className={twMerge('py-16 flex flex-col gap-5', className, !full && 'container')}>
+        <section className={twMerge('py-16 flex flex-col gap-5', className, !full && 'container')} { ...sectionProps }>
             <header className="flex flex-col gap-2">
                 <span className="font-mono text-sky-500 text-sm">{`.../${subtitle}`}</span>
                 <h3 className="text-white text-2xl">{title}</h3>

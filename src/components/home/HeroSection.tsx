@@ -1,8 +1,10 @@
+'use client'
+
 import Image from "next/image"
 import { Badge } from "@components/global/Badge"
 import { Button } from "@components/global/Button"
-import { HiArrowNarrowRight } from 'react-icons/hi'
 import { TbBrandGithub, TbBrandWhatsapp, TbBrandFacebook, TbBrandInstagram, TbBrandLinkedin } from 'react-icons/tb'
+import { BsBoxArrowDown } from 'react-icons/bs'
 import { TECHS } from "@utils/models/TechDTO"
 
 import PhotoPerfil from '/public/images/perfil_naceja_animated.gif'
@@ -31,6 +33,12 @@ const CONTACTS = [
 ]
 
 export const HeroSection = () => {
+
+    const handleGoContact = () => {
+        const ContactSectionDOM = document.getElementById('contact')
+        ContactSectionDOM?.scrollIntoView({ behavior: 'smooth' })
+    }
+
     return (
         <section className="lg:h-screen bg-cover bg-no-repeat bg-center bg-hero-image bg-sky-500 bg-blend-multiply w-full flex flex-col py-32 justify-end">
             <main className="container flex justify-between flex-col-reverse md:flex-row items-center gap-3 h-full">
@@ -46,9 +54,9 @@ export const HeroSection = () => {
                         }
                     </div>
                    <div className="flex mt-10 gap-5 sm:items-center flex-col sm:flex-row">
-                        <Button className="shadow-button">
-                            Meus contatos
-                            <HiArrowNarrowRight size={18} />
+                        <Button className="shadow-button" onClick={handleGoContact}>
+                            Entre em contato
+                            <BsBoxArrowDown size={18} />
                         </Button>
                         <div className="flex flex-row gap-2 justify-center sm:justify-start">
                             {
@@ -69,7 +77,8 @@ export const HeroSection = () => {
                     alt="Imagem de perfil do Naceja"
                     width={300}
                     height={300}
-                    className="rounded-md object-cover md:-translate-y-16"
+                    unoptimized
+                    className="rounded-md object-cover md:-translate-y-16 aspect-auto"
                 />
             </main>
         </section>

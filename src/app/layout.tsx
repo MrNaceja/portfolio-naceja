@@ -4,6 +4,7 @@ import { IBM_Plex_Mono, Inter } from 'next/font/google'
 import { Header } from '@components/global/Header';
 import { ContactFormSection } from '@components/global/ContactFormSection';
 import { Footer } from '@components/global/Footer';
+import { FabBackToTop } from '@components/global/FabBackToTop';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -32,6 +33,7 @@ export default function RootLayout({ children: page }: IRootLayout) {
         <Header />
         {page}
         <ContactFormSection />
+        <FabBackToTop />
         <Footer />
       </body>
     </html>

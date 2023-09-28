@@ -19,7 +19,7 @@ export const ContactFormSection = () => {
     }
 
     return (
-        <SectionDescriptive title="Gostou do meu trabalho?" subtitle="contato">
+        <SectionDescriptive title="Gostou do meu trabalho?" subtitle="contato" id="contact">
             <div className="flex flex-col items-center justify-center gap-3 mx-auto w-full max-w-md">
                 <h1 className="text-2xl">Entre em contato</h1>
                 <form className="flex flex-col gap-4 items-center w-full" onSubmit={handleSubmit(handleContactMe)}>
