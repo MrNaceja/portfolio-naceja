@@ -12,11 +12,20 @@
   @apply mx-auto w-full max-w-[1200px] px-6
 }
 
-.mask-gradient {
+.mask-gradient-r {
   mask-image: linear-gradient(to right, black, transparent);
 }
+.mask-gradient-l {
+  mask-image: linear-gradient(to left, black, transparent);
+}
+.mask-gradient-b {
+  mask-image: linear-gradient(to bottom, black, transparent);
+}
+.mask-gradient-t {
+  mask-image: linear-gradient(to top, black, transparent);
+}
 
-.mask-gradient:hover {
+[class*="mask-gradient-"]:hover {
   mask-image: none;
 }
 

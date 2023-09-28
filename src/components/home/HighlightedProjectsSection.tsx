@@ -53,7 +53,7 @@ export const HighlightedProjectsSection = () => {
                                         })
                                     }
                                     </div>
-                                    <Link href='/projetos/economize' className="flex gap-2 items-center self-center md:self-start" target="_blank">
+                                    <Link href='/projetos/economize' className="flex gap-2 items-center self-center md:self-start transition-colors hover:text-sky-500" target="_blank">
                                         Visualizar
                                         <BsArrowUpRight />
                                     </Link>
@@ -66,7 +66,7 @@ export const HighlightedProjectsSection = () => {
             </main>
             <div className="flex gap-2 items-center justify-center md:justify-start">
                 <span className="text-gray-300">Se interressou?</span>
-                <Link href='/projetos' target="_blank" className="flex gap-2 items-center">
+                <Link href='/projetos' target="_blank" className="flex gap-2 items-center hover:text-sky-500 transition-colors">
                     Visualizar todos
                     <BsArrowUpRight />
                 </Link>

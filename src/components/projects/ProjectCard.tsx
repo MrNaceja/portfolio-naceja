@@ -5,7 +5,7 @@ export const ProjectCard = () => {
         <div className={`
             rounded-lg h-[430px] overflow-hidden bg-slate-700 border border-transparent hover:border-sky-500 
             group transition-all duration-200 cursor-pointer flex flex-col opacity-50 hover:opacity-100
-            hover:shadow-md scale-95 hover:scale-100 mask-gradient
+            hover:shadow-md scale-95 hover:scale-100 mask-gradient-r
         `}>
             <div className="w-full h-52 overflow-hidden">
                 <Image 
