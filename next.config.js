@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['www.ipm.com.br']
+        domains: ['media.graphassets.com']
     }
 }
 module.exports = nextConfig

@@ -1,7 +1,6 @@
 import Image from "next/image"
 import { FaBriefcase } from 'react-icons/fa'
 import { Divider } from "../global/Divider"
-import { TECHS } from "@utils/models/TechDTO"
 import { Badge } from "../global/Badge"
 export const ExperiencesTimeline = () => {
     return (
@@ -24,7 +23,7 @@ export const ExperiencesTimeline = () => {
                        <div className="flex flex-col gap-2 mt-3">
                             <h6 className="text-sm">Competências</h6>
                             <div className="flex gap-3 flex-wrap">
-                                {TECHS.map((tech, index) => <Badge label={tech.name} key={index}/>)}
+                                {/* {TECHS.map((tech, index) => <Badge label={tech.name} key={index}/>)} */}
                             </div>
                        </div>
                     </div>

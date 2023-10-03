@@ -3,36 +3,23 @@
 import Image from "next/image"
 import { Badge } from "@components/global/Badge"
 import { Button } from "@components/global/Button"
-import { TbBrandGithub, TbBrandWhatsapp, TbBrandFacebook, TbBrandInstagram, TbBrandLinkedin } from 'react-icons/tb'
 import { BsBoxArrowDown } from 'react-icons/bs'
-import { TECHS } from "@utils/models/TechDTO"
+import { TechDTO } from "@utils/models/TechDTO"
 
-import PhotoPerfil from '/public/images/perfil_naceja_animated.gif'
+import { SocialMediaDTO } from "@utils/models/SocialMediaDTO"
+import { IconSvg } from "@components/global/IconsSvg"
 
-const CONTACTS = [
-    {
-        link: '',
-        icon: <TbBrandGithub />
-    },
-    {
-        link: '',
-        icon: <TbBrandWhatsapp />
-    },
-    {
-        link: '',
-        icon: <TbBrandFacebook />
-    },
-    {
-        link: '',
-        icon: <TbBrandInstagram />
-    },
-    {
-        link: '',
-        icon: <TbBrandLinkedin />
-    },
-]
-
-export const HeroSection = () => {
+export type HeroSectionDTO = {
+    introduction: string,
+    socialMedias: SocialMediaDTO[],
+    principalTechs: TechDTO[],
+    profilePhoto: string
+}
+interface IHeroSectionProps {
+    data: HeroSectionDTO
+}
+export const HeroSection = ({ data } : IHeroSectionProps) => {
+    const { introduction, socialMedias, principalTechs, profilePhoto } = data
 
     const handleGoContact = () => {
         const ContactSectionDOM = document.getElementById('contact')
@@ -45,10 +32,10 @@ export const HeroSection = () => {
                 <div className="flex flex-col w-full lg:w-2/4 gap-1 text-center sm:text-left">
                     <h2 className="text-sky-500 text-2xl">Olá, me chamo</h2>
                     <h1 className="text-3xl mb-4">Eduardo Toriani</h1>
-                    <p>Meu nome é <b>Eduardo Toriani</b>, mas pode me chamar de <b>Naceja</b>. Tenho 21 anos, sou profissional de Ti atuando atualmento como programador PHP e sou apaixonado por design.</p>
+                    <div dangerouslySetInnerHTML={{ __html: introduction }}></div>
                     <div className="flex items-center gap-2 mt-2">
                         {
-                            TECHS.map((tech, index) => (
+                            principalTechs.map((tech, index) => (
                                 <Badge label={tech.name} key={index} />
                             ))
                         }
@@ -60,20 +47,20 @@ export const HeroSection = () => {
                         </Button>
                         <div className="flex flex-row gap-2 justify-center sm:justify-start">
                             {
-                                CONTACTS.map(({link, icon}, index) => (
+                                socialMedias.map(({iconSvg, url}, index) => (
                                     <a 
                                         className="text-white/70 hover:text-white text-2xl"
                                         key={index} 
-                                        href={link}
+                                        href={url}
                                         target="_blank"
-                                    >{icon}</a>
+                                    ><IconSvg icon={iconSvg} /></a>
                                 ))
                             }
                         </div>
                    </div>
                 </div>
                 <Image
-                    src={PhotoPerfil}
+                    src={profilePhoto}
                     alt="Imagem de perfil do Naceja"
                     width={300}
                     height={300}

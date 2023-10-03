@@ -24,7 +24,7 @@ export default function ProjectPage() {
                 />
                 <p className="text-gray-400 text-sm max-w-2xl text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam rem repudiandae distinctio minima esse obcaecati eos necessitatibus at, veritatis praesentium consequatur illum inventore nulla suscipit facere repellat tempore dolore ipsum.</p>
                 <div className="flex flex-wrap w-full max-w-[500px] gap-2 items-center justify-center">
-                    {TECHS.map((tech, index) => <Badge label={tech.name} key={index}/>)}
+                    { TECHS.map((tech, index) => <Badge label={tech.name} key={index}/>) }
                 </div>
                 <div className="flex justify-between gap-5">
                     <a href="www.github.com" target="_blank">

@@ -2,40 +2,28 @@ import { SectionDescriptive } from "@components/global/SectionDescriptive"
 import { Divider } from "@components/global/Divider"
 import Image from "next/image"
 import { BsArrowUpRight } from 'react-icons/bs'
-import { TECHS } from "@utils/models/TechDTO"
-import { Badge } from "@components/global/Badge"
 import Link from "next/link"
+import { ProjectDTO } from "@utils/models/ProjectDTO"
+import { Badge } from "@components/global/Badge"
 
-const PROJECTS = [
-    {
-        name: 'E-conomize',
-        description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus ab labore eius eos aliquam repellat atque debitis veniam, molestiae tempora laborum ipsa iste rerum. Minima praesentium at dicta provident optio.',
-        img: '/images/project_economize.png',
-        linkTo: '/projetos/economize'
-    },
-    {
-        name: 'Não sei ainda',
-        description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus ab labore eius eos aliquam repellat atque debitis veniam, molestiae tempora laborum ipsa iste rerum. Minima praesentium at dicta provident optio.',
-        img: '/images/project_economize.png',
-        linkTo: '/projetos/economize'
-    },
-]
-
-export const HighlightedProjectsSection = () => {
+interface IHighlightedProjectsSectionProps {
+    data: ProjectDTO[]
+}
+export const HighlightedProjectsSection = ({ data: projects } : IHighlightedProjectsSectionProps) => {
     return (
         <SectionDescriptive title="Projetos em destaque" subtitle="destaques">
             <Divider />
             <main>
                 {
-                    PROJECTS.map((project, index) => (
-                        <div key={project.name}>
+                    projects.map(project => (
+                        <div key={project.slug}>
                             <div className="flex items-center flex-col sm:flex-row gap-6 lg:gap-12">
                                 <div className='w-full h-full'>
                                     <Image
                                         width={300}
                                         height={300}
-                                        src={project.img}
-                                        alt={`Imagem do projeto ${project.name}`}
+                                        src={project.thumb.url}
+                                        alt={`Imagem do projeto ${project.title}`}
                                         className={`
                                             object-cover w-full h-72 rounded-md shadow-md
                                         `}
@@ -43,17 +31,17 @@ export const HighlightedProjectsSection = () => {
                                 </div>
                                 <div className="flex flex-col gap-5">
                                    <div>
-                                        <h1 className="font-bold text-white text-2xl">{project.name}</h1>
-                                        <p className="text-md text-gray-300">{project.description}</p>
+                                        <h1 className="font-bold text-white text-2xl">{project.title}</h1>
+                                        <p className="text-md text-gray-300">{project.shortDescription}</p>
                                    </div>
                                     <div className="flex gap-3">
                                     {
-                                        TECHS.map((tech, index) => {
+                                        project.technologies.map((tech, index) => {
                                             return <Badge label={tech.name} key={index} />
                                         })
                                     }
                                     </div>
-                                    <Link href='/projetos/economize' className="flex gap-2 items-center self-center md:self-start transition-colors hover:text-sky-500" target="_blank">
+                                    <Link href={`/projetos/${project.slug}`} className="flex gap-2 items-center self-center md:self-start transition-colors hover:text-sky-500" target="_blank">
                                         Visualizar
                                         <BsArrowUpRight />
                                     </Link>
