@@ -1,7 +1,7 @@
 import { TechDTO } from "@models/TechDTO"
 import { IconSvg } from "@components/global/IconsSvg"
 import { formatDistanceToNow } from "date-fns"
-import localePtBr from 'date-fns/locale/pt-BR'
+import ptBR from 'date-fns/locale/pt-BR'
 
 interface ITechCardProps extends TechDTO {}
 export const TechCard = ({name: tech, iconSvg, experienceTime} : ITechCardProps) => {
@@ -19,7 +19,7 @@ export const TechCard = ({name: tech, iconSvg, experienceTime} : ITechCardProps)
             <span className="font-light text-md">{
                 formatDistanceToNow(new Date(experienceTime), {
                     addSuffix: true, 
-                    locale: localePtBr,
+                    locale: ptBR,
                 })
             }</span>
         </div>

@@ -2,6 +2,7 @@ import { ExperienceWorkSection } from "@components/home/ExperienceSection"
 import { HeroSection, HeroSectionDTO } from "@components/home/HeroSection"
 import { HighlightedProjectsSection } from "@components/home/HighlightedProjectsSection"
 import { TechsSection } from "@components/home/TechsSection"
+import { ExperienceWorkDTO } from "@utils/models/ExperienceWorkDTO"
 import { ProjectDTO } from "@utils/models/ProjectDTO"
 import { SocialMediaDTO } from "@utils/models/SocialMediaDTO"
 import { TechDTO } from "@utils/models/TechDTO"
@@ -13,7 +14,8 @@ type HomePageDTO = {
     principalTechs: TechDTO[],
     socialMedias: SocialMediaDTO[],
     image: { url: string },
-    highlightedProjects: ProjectDTO[]
+    highlightedProjects: ProjectDTO[],
+    experienceWorks: ExperienceWorkDTO[]
   }
 }
 
@@ -35,6 +37,20 @@ async function fetchData() : Promise<HomePageDTO> {
                   name
                 }
               }
+              experienceWorks {
+                companyName
+                companySite
+                activitiesDescription { html }
+                companyLogo {
+                  url
+                }
+                role
+                since
+                until
+                technologies {
+                  name
+                }
+              }
           }
       }
   `)
@@ -43,7 +59,9 @@ async function fetchData() : Promise<HomePageDTO> {
 
 export default async function HomePage() {
   const pageData = await fetchData()
-  const { introduction, principalTechs, socialMedias, image, highlightedProjects } = pageData.basicInformation
+  const { 
+    introduction, principalTechs, socialMedias, image, highlightedProjects, experienceWorks
+   } = pageData.basicInformation
 
   const heroSectionData : HeroSectionDTO = {
     introduction: introduction.html,
@@ -57,7 +75,7 @@ export default async function HomePage() {
       <HeroSection data={heroSectionData} />
       <TechsSection data={principalTechs}/>
       <HighlightedProjectsSection data={highlightedProjects}/>
-      <ExperienceWorkSection />
+      <ExperienceWorkSection data={experienceWorks}/>
     </>
   )
 }
