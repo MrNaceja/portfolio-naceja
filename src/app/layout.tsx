@@ -5,6 +5,7 @@ import { Header } from '@components/global/Header';
 import { ContactFormSection } from '@components/global/ContactFormSection';
 import { Footer } from '@components/global/Footer';
 import { FabBackToTop } from '@components/global/FabBackToTop';
+import { ToastMessage } from '@components/global/ToastMessage';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -38,6 +39,7 @@ export default function RootLayout({ children: page }: IRootLayout) {
   return (
     <html lang="pt-BR">
       <body className={`${plexMono.variable} ${inter.variable} font-sans`}>
+        <ToastMessage />
         <Header />
         {page}
         <ContactFormSection />

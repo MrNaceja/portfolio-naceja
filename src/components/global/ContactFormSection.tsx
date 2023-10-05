@@ -7,25 +7,29 @@ import { RiMailSendLine } from 'react-icons/ri'
 import { TContact, contactSchema } from "@utils/models/ContactDTO"
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import { twMerge } from "tailwind-merge"
+import toast from "react-hot-toast"
 
 export const ContactFormSection = () => {
 
-    const { handleSubmit, register, reset } = useForm<TContact>({
+    const { handleSubmit, register, reset, formState: { isSubmitting } } = useForm<TContact>({
         resolver: zodResolver(contactSchema)
     })
 
     const handleContactMe = async (formData : TContact) => {
         try {
-            const res = await fetch('/api/contact', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            }).then(res => res.json())
-            alert(res.message)
+            // const res = await fetch('/api/contact', {
+            //     method: 'POST',
+            //     headers: {
+            //       'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify(formData),
+            // }).then(res => res.json())
+            toast.error('Ops, problemas para enviar a mensagem!')
+            toast.success('hhahahha')
+            // toast.success(res.message)
         } catch {
-            alert('Ops, problemas para enviar a mensagem!')
+            toast.error('Ops, problemas para enviar a mensagem!')
         }
         finally {
             reset()
@@ -69,7 +73,10 @@ export const ContactFormSection = () => {
                         `}
                         {...register('message')}
                     />
-                    <Button className="w-full shadow-button mt-4">
+                    <Button className={twMerge(
+                        'w-full shadow-button mt-4 disabled:opacity-50',
+                        isSubmitting && 'cursor-not-allowed'
+                    )} disabled={isSubmitting}>
                         Enviar mensagem
                         <RiMailSendLine />
                     </Button>
