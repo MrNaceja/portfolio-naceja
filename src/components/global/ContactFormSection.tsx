@@ -18,16 +18,14 @@ export const ContactFormSection = () => {
 
     const handleContactMe = async (formData : TContact) => {
         try {
-            // const res = await fetch('/api/contact', {
-            //     method: 'POST',
-            //     headers: {
-            //       'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify(formData),
-            // }).then(res => res.json())
-            toast.error('Ops, problemas para enviar a mensagem!')
-            toast.success('hhahahha')
-            // toast.success(res.message)
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            }).then(res => res.json())
+            toast.success(res.message)
         } catch {
             toast.error('Ops, problemas para enviar a mensagem!')
         }
