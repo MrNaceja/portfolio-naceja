@@ -2,13 +2,18 @@ import { ProjectsIntroSection } from "@components/projects/ProjectsIntroSection"
 import { ProjectsList } from "@components/projects/ProjectsList";
 import { ProjectDTO } from "@utils/models/ProjectDTO";
 import { fetchHygraphQuery } from "@utils/scripts/fetchHygraphQuery";
+import { Metadata } from "next";
 
 type ProjectsPageDTO = {
     projects: ProjectDTO[]
 }
 
+export const metadata : Metadata = {
+    title: 'Projetos'
+}
+
 async function fetchData() : Promise<ProjectsPageDTO> {
-    const data = await fetchHygraphQuery(`
+    const data = await fetchHygraphQuery<ProjectsPageDTO>(`
         query ProjectsPageQuery {
             projects {
                 slug

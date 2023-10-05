@@ -10,12 +10,26 @@ import { zodResolver } from '@hookform/resolvers/zod'
 
 export const ContactFormSection = () => {
 
-    const { handleSubmit, register } = useForm<TContact>({
+    const { handleSubmit, register, reset } = useForm<TContact>({
         resolver: zodResolver(contactSchema)
     })
 
-    const handleContactMe = (formData : TContact) => {
-
+    const handleContactMe = async (formData : TContact) => {
+        try {
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            }).then(res => res.json())
+            alert(res.message)
+        } catch {
+            alert('Ops, problemas para enviar a mensagem!')
+        }
+        finally {
+            reset()
+        }
     }
 
     return (

@@ -19,8 +19,16 @@ const plexMono = IBM_Plex_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Naceja | Portfólio',
-  description: 'Meu portfólio pessoal (naceja)',
+  title: {
+    default: 'Naceja | Portfólio',
+    template: '%s | Naceja'
+  },
+  icons: [
+    {
+      url: '/favicon.png'
+    }
+  ],
+  description: 'Portfólio pessoal de Eduardo "Naceja" Toriani',
 }
 
 interface IRootLayout {

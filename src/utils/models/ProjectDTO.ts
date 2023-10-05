@@ -9,7 +9,7 @@ export type ProjectDTO = {
     slug: string,
     title: string,
     shortDescription: string, 
-    description: { html: string }
+    description: { html: string, text: string }
     thumb: { url: string },
     technologies: TechDTO[],
     demos?: ProjectDemoDTO[]

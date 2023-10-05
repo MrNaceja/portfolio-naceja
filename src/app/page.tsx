@@ -20,7 +20,7 @@ type HomePageDTO = {
 }
 
 async function fetchData() : Promise<HomePageDTO> {
-  const data = await fetchHygraphQuery(`
+  const data = await fetchHygraphQuery<HomePageDTO>(`
       query HomePageQuery {
           basicInformation(where: { id: "${process.env.HYGRAPH_BASIC_INFORMATION_ID}" }) {
               introduction { html }

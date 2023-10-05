@@ -7,18 +7,18 @@ import Link from "next/link";
 import { ProjectDemosSection } from "@components/projects/ProjectDemosSection";
 import { ProjectDTO } from "@utils/models/ProjectDTO";
 import { fetchHygraphQuery } from "@utils/scripts/fetchHygraphQuery";
+import { Metadata } from "next";
 
 type ProjectPageDTO = {
     project: ProjectDTO
 }
 
 async function fetchData(slug: ProjectDTO['slug']) : Promise<ProjectPageDTO> {
-    console.log(slug)
-    const data = await fetchHygraphQuery(`
+    const data = await fetchHygraphQuery<ProjectPageDTO>(`
         query ProjectPageQuery {
             project (where: { slug: "${slug}" }) {
                 title
-                description { html }
+                description { html, text }
                 shortDescription
                 thumb { url }
                 technologies { name }
@@ -88,4 +88,30 @@ export default async function ProjectPage({ params: { slug } } : IProjectPagePro
             { demos && <ProjectDemosSection demos={demos}/>}
         </>
     )
+}
+
+export async function generateStaticParams() {
+    const { projects } = await fetchHygraphQuery<{ projects: Pick<ProjectDTO, 'slug'>[] }>(`
+        query ProjectSlugsQuery {
+            projects (first: 100) {
+                slug
+            }
+        }
+    `)
+    return projects
+}
+
+export async function generateMetadata({ params: { slug } } : IProjectPageProps) : Promise<Metadata> {
+    const pageData = await fetchData(slug)
+    return {
+        title: pageData.project.title,
+        description: pageData.project.description.text,
+        openGraph: {
+            images: {
+                url: pageData.project.thumb.url,
+                width: 1280,
+                height: 720
+            }
+        }
+    }
 }
