@@ -11,7 +11,13 @@ export const TechsSection = ({ data: techs } : ITechsSectionProps) => {
            <main className="grid grid-cols-[repeat(auto-fit,minmax(264px,1fr))] gap-5">
             {
                 techs.map((tech, index) => (
-                    <TechCard key={index} name={tech.name} iconSvg={tech.iconSvg} experienceTime={tech.experienceTime} />
+                    <TechCard 
+                        initial={{ opacity: 0, x: -100 }}
+                        exit={{ opacity: 0, x: -100 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.15, delay: index * 0.1 }}
+                        key={index} {...tech} 
+                    />
                 ))
             }
            </main>

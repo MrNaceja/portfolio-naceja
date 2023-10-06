@@ -1,3 +1,5 @@
+'use client'
+
 import { SectionDescriptive } from "@components/global/SectionDescriptive"
 import { Divider } from "@components/global/Divider"
 import Image from "next/image"
@@ -5,6 +7,7 @@ import { BsArrowUpRight } from 'react-icons/bs'
 import Link from "next/link"
 import { ProjectDTO } from "@utils/models/ProjectDTO"
 import { Badge } from "@components/global/Badge"
+import { motion } from "framer-motion"
 
 interface IHighlightedProjectsSectionProps {
     data: ProjectDTO[]
@@ -15,9 +18,15 @@ export const HighlightedProjectsSection = ({ data: projects } : IHighlightedProj
             <Divider />
             <main>
                 {
-                    projects.map(project => (
+                    projects.map((project, index) => (
                         <div key={project.slug}>
-                            <div className="flex items-center flex-col sm:flex-row gap-6 lg:gap-12">
+                            <motion.div 
+                                initial={{ opacity: 0, y: 50 }}
+                                exit={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y:0 }}
+                                transition={{ duration: .5, delay: index * 0.1 }}
+                                className="flex items-center flex-col sm:flex-row gap-6 lg:gap-12"
+                            >
                                 <div className='w-full h-full'>
                                     <Image
                                         width={300}
@@ -46,7 +55,7 @@ export const HighlightedProjectsSection = ({ data: projects } : IHighlightedProj
                                         <BsArrowUpRight />
                                     </Link>
                                 </div>
-                            </div>
+                            </motion.div>
                             <Divider className="my-5" />
                         </div>
                     ))

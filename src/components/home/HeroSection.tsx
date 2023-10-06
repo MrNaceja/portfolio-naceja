@@ -9,6 +9,8 @@ import { TechDTO } from "@utils/models/TechDTO"
 import { SocialMediaDTO } from "@utils/models/SocialMediaDTO"
 import { IconSvg } from "@components/global/IconsSvg"
 
+import { motion } from 'framer-motion'
+
 export type HeroSectionDTO = {
     introduction: string,
     socialMedias: SocialMediaDTO[],
@@ -29,14 +31,26 @@ export const HeroSection = ({ data } : IHeroSectionProps) => {
     return (
         <section className="lg:h-screen bg-cover bg-no-repeat bg-center bg-hero-image bg-sky-500 bg-blend-multiply w-full flex flex-col py-32 justify-end">
             <main className="container flex justify-between flex-col-reverse md:flex-row items-center gap-3 h-full">
-                <div className="flex flex-col w-full lg:w-2/4 gap-1 text-center sm:text-left">
+                <motion.div 
+                    initial={{ opacity: 0, x: '-100%' }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: '-100%' }}
+                    transition={{ duration: 0.5, type: "spring", bounce: 0.5}}
+                    className="flex flex-col w-full lg:w-2/4 gap-1 text-center sm:text-left"
+                >
                     <h2 className="text-sky-500 text-2xl">Olá, me chamo</h2>
                     <h1 className="text-3xl mb-4">Eduardo Toriani</h1>
                     <div dangerouslySetInnerHTML={{ __html: introduction }}></div>
                     <div className="flex items-center gap-2 mt-2">
                         {
                             principalTechs.map((tech, index) => (
-                                <Badge label={tech.name} key={index} />
+                                <Badge 
+                                    initial={{ opacity: 0, scale:0 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0 }}
+                                    transition={{ duration: 0.5, delay: index * 0.2 }}
+                                    label={tech.name} key={index}
+                                />
                             ))
                         }
                     </div>
@@ -58,15 +72,23 @@ export const HeroSection = ({ data } : IHeroSectionProps) => {
                             }
                         </div>
                    </div>
-                </div>
-                <Image
-                    src={profilePhoto}
-                    alt="Imagem de perfil do Naceja"
-                    width={300}
-                    height={300}
-                    unoptimized
-                    className="rounded-md object-cover md:-translate-y-16 aspect-auto"
-                />
+                </motion.div>
+                <motion.div
+                    initial={{ y: 100, opacity: 0, scale: 0 }}
+                    whileInView={{ y: 0, opacity: 1, scale: 1 }}
+                    exit={{ y: 100, opacity: 0, scale: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="origin-top"
+                >
+                    <Image
+                        src={profilePhoto}
+                        alt="Imagem de perfil do Naceja"
+                        width={300}
+                        height={300}
+                        unoptimized
+                        className="rounded-md object-cover md:-translate-y-16 aspect-auto"
+                    />
+                </motion.div>
             </main>
         </section>
     )
