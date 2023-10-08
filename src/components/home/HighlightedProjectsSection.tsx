@@ -40,13 +40,31 @@ export const HighlightedProjectsSection = ({ data: projects } : IHighlightedProj
                                 </div>
                                 <div className="flex flex-col gap-5">
                                    <div>
-                                        <h1 className="font-bold text-white text-2xl">{project.title}</h1>
-                                        <p className="text-md text-gray-300">{project.shortDescription}</p>
+                                        <motion.h1 
+                                            initial={{ opacity: 0, y: 20 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: 20 }}
+                                            transition={{ duration: .2, delay: .5 }}
+                                            className="font-bold text-white text-2xl">{project.title}</motion.h1>
+                                        <motion.p 
+                                             initial={{ opacity: 0, y: 20 }}
+                                             whileInView={{ opacity: 1, y: 0 }}
+                                             exit={{ opacity: 0, y: 20 }}
+                                             transition={{ duration: .2, delay: .3 }}
+                                            className="text-md text-gray-300">{project.shortDescription}</motion.p>
                                    </div>
                                     <div className="flex gap-3">
                                     {
                                         project.technologies.map((tech, index) => {
-                                            return <Badge label={tech.name} key={index} />
+                                            return (
+                                                <Badge 
+                                                    initial={{ opacity:0, y:100 }}
+                                                    whileInView={{ opacity: 1, y: 0 }}
+                                                    exit={{ opacity:0, y: 100 }}
+                                                    transition={{ duration: .3, delay: 0.1 * index }}
+                                                    label={tech.name} key={index} 
+                                                />
+                                            )
                                         })
                                     }
                                     </div>
