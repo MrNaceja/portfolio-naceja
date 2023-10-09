@@ -27,7 +27,7 @@ export const SectionDescriptive = ({title, subtitle, children, className, full =
                 <motion.h3 
                     {...animConfig}
                     transition={{ duration: 0.8 }}
-                    className="text-white text-2xl animate-pulse"
+                    className="text-white text-2xl"
                 >{title}</motion.h3>
             </header>
             { children }

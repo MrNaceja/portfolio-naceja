@@ -4,6 +4,7 @@ import { Button } from "@components/global/Button"
 import { useCallback, useEffect, useState } from "react"
 import { BsBoxArrowUp } from 'react-icons/bs'
 import { twMerge } from "tailwind-merge"
+import { AnimatePresence, motion } from "framer-motion"
 
 export const FabBackToTop = () => {
     const [visible, setVisible] = useState(false)
@@ -22,14 +23,19 @@ export const FabBackToTop = () => {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [ handleScroll ])
     return (
-        <Button 
-            onClick={handleGoToTop}
-            className={twMerge(
-                "fixed right-5 bottom-5 z-20 hover:shadow-button transition-all animate-bounce",
-                visible ? 'visible' : 'invisible'
+        <AnimatePresence>
+            {visible && (
+                <motion.div
+                    initial={{ opacity:0, right: -20 }}
+                    exit={{ opacity:0, right: -20 }}
+                    animate={{ opacity: 1, right: 20 }}
+                    className="fixed right-5 bottom-20 z-20"
+                >
+                    <Button onClick={handleGoToTop} className="hover:shadow-button">
+                        <BsBoxArrowUp />
+                    </Button>
+                </motion.div>
             )}
-        >
-        <BsBoxArrowUp />
-    </Button>
+        </AnimatePresence>
     )
 }

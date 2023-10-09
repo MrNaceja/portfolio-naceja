@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { usePathname } from 'next/navigation'
+import { usePathname, useSelectedLayoutSegment } from 'next/navigation'
 import { twMerge } from "tailwind-merge";
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import { useState } from "react";
@@ -13,18 +13,27 @@ type TNavLink = {
     route: string
 }
 
+
 const headerNavigations: TNavLink[] = [
-    { label: 'Inicio', route: '/' },
+    { label: 'Inicio'  , route: '/' },
     { label: 'Projetos', route: '/projetos' },
 ]
+
+const ACTIVE_LINK_STYLE_CLASSES = "text-md text-white font-bold after:block after:absolute after:-bottom-1 after:inset-x-1/2 after:h-1 after:w-1 after:rounded-full after:bg-white after:animate-ping"
 
 export const Header = () => {
     const currentRoute = usePathname()
     const { scrollY } = useScroll()
     const [scrolledStyle, setScrolledStyle] = useState('border-b-transparent backdrop-blur-md')
     useMotionValueEvent(scrollY, "change", (latest) => {
-        setScrolledStyle(latest > 500 ? `border-b-white/5 backdrop-blur-lg` : 'border-b-transparent backdrop-blur-md')
+        if (latest > 500)  {
+            setScrolledStyle('border-b-white/5 backdrop-blur-lg')
+        }
+        if (latest <= 500) {
+            setScrolledStyle('border-b-transparent backdrop-blur-md')
+        } 
     })
+    
     return (
         <motion.header 
             initial={{ top: -100, opacity: 0}}
@@ -46,14 +55,15 @@ export const Header = () => {
                 <nav className="flex gap-5 items-baseline">
                     {
                         headerNavigations.map(({ label, route }) => {
-                            const isActiveRoute = currentRoute == route
-                            return <Link key={route} href={route} className={
-                                twMerge("cursor-pointer select-none uppercase relative",
-                                    isActiveRoute
-                                        ? "text-md text-white font-bold after:block after:absolute after:-bottom-1 after:inset-x-1/2 after:h-1 after:w-1 after:rounded-full after:bg-white after:animate-ping"
-                                        : "text-sm text-gray-400 hover:text-gray-200"
-                                )
-                            }>{label}</Link>
+                            const isProjectRoute = (route === '/projetos' && currentRoute.startsWith('/projetos'))
+                            const isActiveRoute  = currentRoute === route || isProjectRoute
+                            return (
+                                <Link key={route} href={route} className={
+                                    twMerge("cursor-pointer select-none uppercase relative text-sm text-gray-400 hover:text-gray-200",
+                                        isActiveRoute && ACTIVE_LINK_STYLE_CLASSES
+                                    )
+                                }>{label}</Link>
+                            )
 
                         })
                     }

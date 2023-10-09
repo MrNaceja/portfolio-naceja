@@ -15,38 +15,38 @@ export const ExperiencesTimeline = ({ experiences } : IExperiencesTimelineProps)
     return (
         <div className="flex flex-col gap-2">
             {
-                experiences.map(exp => {
+                experiences.map((exp, index) => {
                     const sinceFormatted = format(new Date(exp.since), 'MMM yyyy', dateConfig)
                     const untilFormatted = exp.until ? format(new Date(exp.until), 'MMM yyyy', dateConfig) : 'atual'
                     const timeHouse      = formatDistance(exp.until ? new Date(exp.until) : new Date(), new Date(exp.since), dateConfig)
                     return (
-                        <div className="grid grid-cols-[42px,1fr] gap-5">
+                        <div className="grid grid-cols-[42px,1fr] gap-5" key={`${index}-${exp.companyName}`}>
                             <div className="flex flex-col items-center gap-2">
-                            <motion.div 
-                                initial={{ opacity: 0, scale: 0 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0 }}
-                                transition={{ duration: .3 }}
-                                className="grid place-items-center"
-                            >
-                                {/* <FaBriefcase /> */}
-                                <Image 
-                                    width={40}
-                                    height={40}
-                                    unoptimized
-                                    src={exp.companyLogo.url}
-                                    alt={`Logo da companhia ${exp.companyName}`}
-                                    className="bg-cover w-full h-full"
+                                <motion.div 
+                                    initial={{ opacity: 0, scale: 0 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0 }}
+                                    transition={{ duration: .3 }}
+                                    className="grid place-items-center"
+                                >
+                                    {/* <FaBriefcase /> */}
+                                    <Image 
+                                        width={40}
+                                        height={40}
+                                        unoptimized
+                                        src={exp.companyLogo.url}
+                                        alt={`Logo da companhia ${exp.companyName}`}
+                                        className="bg-cover w-full h-full"
+                                    />
+                                </motion.div>
+                                <Divider 
+                                    initial={{ opacity: 0, height: 0 }}
+                                    whileInView={{ opacity:1, height: '100%' }}
+                                    exit={{ opacity: 0, height: 0 }}
+                                    transition={{ duration: .8, delay: .4 }}
+                                    direction="vertical"
+                                    className="origin-top"
                                 />
-                            </motion.div>
-                            <Divider 
-                                initial={{ opacity: 0, height: 0 }}
-                                whileInView={{ opacity:1, height: '100%' }}
-                                exit={{ opacity: 0, height: 0 }}
-                                transition={{ duration: .8, delay: .4 }}
-                                direction="vertical"
-                                className="origin-top"
-                            />
                             </div>
                             <motion.div
                                 initial={{ opacity: 0, x: 100 }}

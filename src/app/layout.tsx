@@ -6,6 +6,7 @@ import { ContactFormSection } from '@components/global/ContactFormSection';
 import { Footer } from '@components/global/Footer';
 import { FabBackToTop } from '@components/global/FabBackToTop';
 import { ToastMessage } from '@components/global/ToastMessage';
+import { FabWhatsapp } from '@components/global/FabWhatsaap';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -44,6 +45,7 @@ export default function RootLayout({ children: page }: IRootLayout) {
         {page}
         <ContactFormSection />
         <FabBackToTop />
+        <FabWhatsapp />
         <Footer />
       </body>
     </html>

@@ -8,6 +8,18 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    keyframes: {
+      bounce: {
+        '0%, 100%': {
+            transform: 'translateY(-10%)',
+            'animation-timing-function': 'cubic-bezier(0.8,0,1,1)',
+        },
+        '50%': {
+            transform: 'none',
+            'animation-timing-function': 'cubic-bezier(0,0,0.2,1)',
+        }
+    }
+    },
     fontFamily: {
       sans: ['var(--font-inter)', 'sans-serif'],
     },

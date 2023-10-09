@@ -1,7 +1,10 @@
+'use client'
+
 import { Divider } from "@components/global/Divider"
 import { SectionDescriptive } from "@components/global/SectionDescriptive"
 import { ProjectDemoDTO } from "@utils/models/ProjectDTO"
 import Image from "next/image"
+import { motion } from "framer-motion"
 
 interface IProjectDemosSectionProps {
     demos: ProjectDemoDTO[]
@@ -14,7 +17,13 @@ export const ProjectDemosSection = ({ demos } : IProjectDemosSectionProps) => {
         >
             {
                 demos.map(demo => (
-                    <section key={demo.title} className="flex flex-col gap-8 items-center">
+                    <motion.section 
+                        initial={{ opacity: 0, y: 100 }}
+                        exit={{ opacity: 0, y: 100 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: .5 }}
+                        key={demo.title} className="flex flex-col gap-8 items-center"
+                    >
                         <h2 className="text-2xl md:text-3xl font-medium text-gray-400">{ demo.title }</h2>
                         <Image 
                             src={demo.image.url}
@@ -25,7 +34,7 @@ export const ProjectDemosSection = ({ demos } : IProjectDemosSectionProps) => {
                             unoptimized
                         />
                         <Divider />
-                    </section>
+                    </motion.section>
                 ))
             }
         </SectionDescriptive>

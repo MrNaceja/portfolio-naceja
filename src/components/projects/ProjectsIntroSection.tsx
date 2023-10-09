@@ -1,6 +1,10 @@
+'use client'
+
 import { SectionDescriptive } from "@components/global/SectionDescriptive"
 import Link from "next/link"
 import { HiArrowNarrowLeft } from 'react-icons/hi'
+import { motion } from "framer-motion"
+
 export const ProjectsIntroSection = () => {
     return (
         <SectionDescriptive 
@@ -9,7 +13,15 @@ export const ProjectsIntroSection = () => {
             full
             className="h-[500px] items-center justify-center px-16 bg-gradient-to-b from-sky-500/25 from-10%"
         >
-         <p className="text-gray-400 text-md max-w-2xl text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis expedita, repudiandae, sunt quo ad veritatis tempora nulla dolor eos eum natus! Et maxime voluptatem obcaecati eius inventore minus corrupti ad.</p>
+         <motion.p 
+            initial={{ opacity:0, y: 50 }}
+            exit={{ opacity:0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: .5 }}
+            className="text-gray-400 text-md max-w-2xl text-center"
+        >
+            Aqui serão apresentados alguns dos meus projetos pessoais e profissionais. Fique a vontade para visualiza-los e descobrir um pouco mais sobre mim e minhas competências. Expero que goste ❤️.
+         </motion.p>
          <Link href='/' className={`
             flex gap-2 items-center border border-transparent p-3 rounded-md
             hover:gap-3 transition-all
