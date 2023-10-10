@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss'
 import colors from 'tailwindcss/colors'
+import configDefault from 'tailwindcss/defaultConfig'
 
 const config: Config = {
   content: [
@@ -9,6 +10,7 @@ const config: Config = {
   ],
   theme: {
     keyframes: {
+      ...configDefault.theme?.keyframes,
       bounce: {
         '0%, 100%': {
             transform: 'translateY(-10%)',
@@ -18,7 +20,7 @@ const config: Config = {
             transform: 'none',
             'animation-timing-function': 'cubic-bezier(0,0,0.2,1)',
         }
-    }
+      }
     },
     fontFamily: {
       sans: ['var(--font-inter)', 'sans-serif'],

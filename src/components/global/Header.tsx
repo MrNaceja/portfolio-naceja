@@ -19,8 +19,6 @@ const headerNavigations: TNavLink[] = [
     { label: 'Projetos', route: '/projetos' },
 ]
 
-const ACTIVE_LINK_STYLE_CLASSES = "text-md text-white font-bold after:block after:absolute after:-bottom-1 after:inset-x-1/2 after:h-1 after:w-1 after:rounded-full after:bg-white after:animate-ping"
-
 export const Header = () => {
     const currentRoute = usePathname()
     const { scrollY } = useScroll()
@@ -59,8 +57,12 @@ export const Header = () => {
                             const isActiveRoute  = currentRoute === route || isProjectRoute
                             return (
                                 <Link key={route} href={route} className={
-                                    twMerge("cursor-pointer select-none uppercase relative text-sm text-gray-400 hover:text-gray-200",
-                                        isActiveRoute && ACTIVE_LINK_STYLE_CLASSES
+                                    twMerge(`
+                                        cursor-pointer select-none uppercase relative text-sm text-gray-400 hover:text-gray-200 
+                                        after:block after:absolute after:-bottom-1 after:inset-x-1/2 after:h-1 
+                                        after:w-1 after:rounded-full after:bg-transparent after:animate-ping
+                                    `,
+                                        isActiveRoute && 'text-md text-white font-bold after:bg-white'
                                     )
                                 }>{label}</Link>
                             )
