@@ -39,7 +39,7 @@ interface IRootLayout {
 export default function RootLayout({ children: page }: IRootLayout) {
   return (
     <html lang="pt-BR">
-      <body className={`${plexMono.variable} ${inter.variable} font-sans overflow-x-hidden`}>
+      <body className={`${plexMono.variable} ${inter.variable} font-sans `}>
         <ToastMessage />
         <Header />
         {page}

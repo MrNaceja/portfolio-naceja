@@ -10,7 +10,7 @@ interface IBadgeProps extends ComponentProps<typeof motion.span> {
 export const Badge = ({ label, className, ...spanProps } : IBadgeProps) => {
     return (
         <motion.span className={twMerge(
-            'text-sky-400 bg-sky-800/50 px-4 py-1 rounded-md text-sm uppercase',
+            'text-sky-400 bg-sky-800/50 px-4 py-1 rounded-md text-sm uppercase grid place-items-center',
             className
         )} {...spanProps}>
             {label}

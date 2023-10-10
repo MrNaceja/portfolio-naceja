@@ -10,7 +10,7 @@ interface IExperienceWorkSectionProps {
 export const ExperienceWorkSection = ({ data } : IExperienceWorkSectionProps) => {
     return (
         <SectionDescriptive title="Experiências profissionais" subtitle="experiências">
-            <div className="flex gap-16 flex-col sm:flex-row">
+            <div className="flex gap-16 flex-col sm:flex-row w-full">
                 <div className="max-w-[420px]">
                     <motion.p 
                         initial={{ opacity: 0,y: 100 }}

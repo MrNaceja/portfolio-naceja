@@ -4,12 +4,12 @@
 
 @layer base {
   body {
-    @apply bg-gray-900 text-gray-100 tracking-wide
+    @apply bg-gray-900 text-gray-100 tracking-wide overflow-x-hidden
   }
 }
 
 .container {
-  @apply mx-auto w-full max-w-[1200px] px-6
+  @apply mx-auto w-full max-w-[1100px] px-6
 }
 
 .mask-gradient-r {

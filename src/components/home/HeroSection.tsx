@@ -32,10 +32,10 @@ export const HeroSection = ({ data } : IHeroSectionProps) => {
         <section className="lg:h-screen bg-cover bg-no-repeat bg-center bg-hero-image bg-sky-500 bg-blend-multiply w-full flex flex-col py-32 justify-end">
             <main className="container flex justify-between flex-col-reverse md:flex-row items-center gap-3 h-full">
                 <motion.div 
-                    initial={{ opacity: 0, x: '-100%' }}
+                    initial={{ opacity: 0, x: -90 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: '-100%' }}
-                    transition={{ duration: 0.5, type: "spring", bounce: 0.5}}
+                    exit={{ opacity: 0, x: -90 }}
+                    transition={{ duration: 0.5}}
                     className="flex flex-col w-full lg:w-2/4 gap-1 text-center sm:text-left"
                 >
                     <h2 className="text-sky-500 text-2xl">Olá, me chamo</h2>
