@@ -8,7 +8,7 @@ export const fetchHygraphQuery = async <T>(query : string) : Promise<T> => {
         },
         body: JSON.stringify({ query }),
         next: {
-            revalidate: 60 * 60 * 24 // 1 dia...
+            revalidate: 5000 
         }
     })
     const result = await data.json()

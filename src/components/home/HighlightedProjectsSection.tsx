@@ -27,7 +27,7 @@ export const HighlightedProjectsSection = ({ data: projects } : IHighlightedProj
                                 transition={{ duration: .5, delay: index * 0.1 }}
                                 className="flex items-center flex-col sm:flex-row gap-6 lg:gap-12"
                             >
-                                <div className='w-full h-full'>
+                                <div className='w-full h-full max-w-md'>
                                     <Image
                                         width={300}
                                         height={300}
