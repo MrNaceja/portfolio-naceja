@@ -11,7 +11,11 @@ export const ProjectsIntroSection = () => {
             title="Meus projetos" 
             subtitle="projetos"
             full
-            className="h-[500px] items-center justify-center px-16 bg-gradient-to-b from-sky-500/25 from-10%"
+            className={`
+                h-[500px] items-center justify-center px-16 bg-gradient-to-b [&>header]:items-center relativefrom-sky-500/5 from-10%
+                before:absolute before:bg-sky-500/25 before:rounded-full before:blur-3xl before:-z-10
+                before:-top-[90%] before:h-full before:w-full
+            `}
         >
          <motion.p 
             initial={{ opacity:0, y: 50 }}

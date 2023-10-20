@@ -8,7 +8,7 @@ interface ISectionDescriptiveProps extends DetailedHTMLProps<HTMLAttributes<HTML
     title: string,
     subtitle: string,
     children: React.ReactNode,
-    full?: boolean  
+    full?: boolean
 }
 export const SectionDescriptive = ({title, subtitle, children, className, full = false, ...sectionProps} : ISectionDescriptiveProps) => {
     const animConfig = {
@@ -22,12 +22,12 @@ export const SectionDescriptive = ({title, subtitle, children, className, full =
                 <motion.span 
                     {...animConfig}
                     transition={{ duration: 0.5 }}
-                    className="font-mono text-sky-500 text-sm"
-                >{`.../${subtitle}`}</motion.span>
+                    className='text-xs sm:text-md uppercase bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-sky-700 w-max tracking-[5px]'
+                >{subtitle}</motion.span>
                 <motion.h3 
                     {...animConfig}
-                    transition={{ duration: 0.8 }}
-                    className="text-white text-2xl"
+                    transition={{ duration: 0.8, delay: .1 }}
+                    className="text-white text-[1.3rem] sm:text-3xl font-semibold"
                 >{title}</motion.h3>
             </header>
             { children }

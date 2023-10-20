@@ -38,10 +38,10 @@ export const HeroSection = ({ data } : IHeroSectionProps) => {
                     transition={{ duration: 0.5}}
                     className="flex flex-col w-full lg:w-2/4 gap-1 text-center sm:text-left"
                 >
-                    <h2 className="text-sky-500 text-2xl">Olá, me chamo</h2>
-                    <h1 className="text-3xl mb-4">Eduardo Toriani</h1>
+                    <h2 className="text-sky-500 text-2xl text-transparent bg-clip-text bg-gradient-to-b from-sky-400 to-sky-500">Olá, me chamo</h2>
+                    <h1 className="text-3xl mb-4 font-bold tracking-wider uppercase">Eduardo Toriani</h1>
                     <div dangerouslySetInnerHTML={{ __html: introduction }}></div>
-                    <div className="flex items-center gap-2 mt-2">
+                    <div className="flex items-center gap-2 mt-3 flex-wrap justify-center sm:justify-start">
                         {
                             principalTechs.map((tech, index) => (
                                 <Badge 
@@ -55,7 +55,7 @@ export const HeroSection = ({ data } : IHeroSectionProps) => {
                         }
                     </div>
                    <div className="flex mt-10 gap-5 sm:items-center flex-col sm:flex-row">
-                        <Button className="shadow-button" onClick={handleGoContact}>
+                        <Button className="shadow-button uppercase text-sm" onClick={handleGoContact}>
                             Entre em contato
                             <BsBoxArrowDown size={18} />
                         </Button>

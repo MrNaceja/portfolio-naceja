@@ -23,14 +23,11 @@ const config: Config = {
       }
     },
     fontFamily: {
-      sans: ['var(--font-inter)', 'sans-serif'],
+      sans: ['var(--font-sora)', 'sans-serif'],
     },
     extend: {
       backgroundImage: {
         'hero-image': "url('/images/hero_bg.png')"
-      },
-      fontFamily: {
-        mono: ['var(--font-plex-mono)', 'monospace'],
       },
       boxShadow: {
         button: `0px 0px 25px 8px ${colors.sky[400]}40` ,

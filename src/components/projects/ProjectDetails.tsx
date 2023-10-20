@@ -25,7 +25,7 @@ export const ProjectDetails = ({ details } : IProjectDetailsProps) => {
                 title={title}
                 subtitle="projeto"
                 full
-                className="h-max py-32 items-center justify-end px-6 md:px-16 relative"
+                className="h-max py-32 items-center justify-end px-6 md:px-16 relative [&>header]:items-center "
             >
                 <motion.figure 
                     className="absolute inset-0 z-[-1] mask-gradient-b"

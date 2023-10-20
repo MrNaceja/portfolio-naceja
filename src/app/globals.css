@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-gray-900 text-gray-100 tracking-wide overflow-x-hidden
+    @apply bg-gray-900 text-gray-100 tracking-wide overflow-x-hidden font-sans
   }
 }
 
@@ -34,9 +34,9 @@
 }
 
 *::-webkit-scrollbar-track {
-  @apply rounded-sm bg-gray-950
+  @apply rounded-sm bg-gray-900 
 }
 
 *::-webkit-scrollbar-thumb {
-  @apply bg-sky-500 rounded-md
+  @apply bg-sky-500 rounded-md border-2 border-solid border-gray-900
 }
